@@ -1,0 +1,18 @@
+# Do not include azure-functions-worker in this file
+# The Python Worker is managed by the Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+
+azure-core~=1.32.0
+azure-functions
+azure-identity
+azure-cosmos
+azure-servicebus
+redis~=5.2.1
+azure-monitor-opentelemetry
+azure-monitor-events-extension
+pydantic~=2.10.4
+email-validator
+pydantic_core~=2.27.2
+requests~=2.32.3
+pyjwt
+pygithub

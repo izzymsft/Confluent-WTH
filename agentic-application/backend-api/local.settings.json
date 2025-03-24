@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "AccountEndpoint=https://account.documents.azure.com:443/;",
+    "COSMOS_CONNECTION": "AccountEndpoint=https://account.documents.azure.com:443/",
+    "COSMOS_DATABASE_NAME": "confluent-kitchen-dev",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=9f0e997c-20eb-41e2-81c7-c25476c59e24;IngestionEndpoint=https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint=https://centralus.livediagnostics.monitor.azure.com/;ApplicationId=3c888cb8-4fee-4956-befe-4522e49fba62"
+  },
+  "Host": {
+    "LocalHttpPort": 7072,
+    "CORS": "*"
+  }
+}
