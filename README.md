@@ -10,7 +10,7 @@ During the hackathon, you'll dive into the world of data streaming by setting up
 
 Confluent Cloud has over 200 Kafka source and sink connectors that allows developers to design and implement real time data pipelines that move data from various data sources into several destinations via Apache Kafka. Once the event streams arrive in Apache Kafka, we can leverage Apache Flink or KSQLDB in Confluent Cloud on Azure to process, filter or merge multiple streams of data and synchronize the output into a new Kafka topic. 
 
-Once the data stream arrives in this destination topic it can then be synchronized to a datastore that represents the most up-to-date version of data. 
+Once the data stream arrives in this destination topic it can then be synchronized to a datastore such as Cosmos DB or Azure AI Search that represents the most up-to-date version of data the AI agent can leverage to provide valid answers to customers, employees and suppliers. 
 
 ![Architecture Overview](./images/architecture-overview.png)
 
