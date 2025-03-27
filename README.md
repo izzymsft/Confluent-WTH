@@ -8,6 +8,10 @@ In a world where data chaos can slow progress, Confluent Cloud on Azure offers a
 ## What You'll Do
 During the hackathon, you'll dive into the world of data streaming by setting up pipelines that capture and process retail data—from product SKUs and purchases to transaction returns and inventory replenishments. Using over 200 pre-built Kafka connectors [4], you'll seamlessly ingest data from diverse sources. Then, using Apache Flink or KSQLDB within Confluent Cloud on Azure, you'll process these streams in a serverless environment to consolidate events into a single, near real-time topic. This consolidated data forms the backbone of your up-to-date database, crucial for powering an AI agent that delivers precise insights and optimal experiences to customers, employees, and suppliers alike [3].
 
+Confluent Cloud has over 200 Kafka source and sink connectors that allows developers to design and implement real time data pipelines that move data from various data sources into several destinations via Apache Kafka. Once the event streams arrive in Apache Kafka, we can leverage Apache Flink or KSQLDB in Confluent Cloud on Azure to process, filter or merge multiple streams of data and synchronize the output into a new Kafka topic. 
+
+Once the data stream arrives in this destination topic it can then be synchronized to a datastore that represents the most up-to-date version of data. 
+
 ![Architecture Overview](./images/architecture-overview.png)
 
 ![KSQLDB](./images/ksqldb.png)
