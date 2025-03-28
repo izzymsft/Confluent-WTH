@@ -50,7 +50,7 @@ Employees should be able to perform the following functions:
 - Modify a list of SKUs a vendor is able to replenish
 
 The goal of this challenge is to observe how changes to the database via the agent is processed in realtime using the capabilities of Confluent Cloud on Azure.
-Any modifications to records in the database via the agent, flows through Confluent Cloud an is reflected in the destination datastore in near realtime.
+Any modifications to records in the database via the agent, flows through Confluent Cloud and is reflected in the destination datastore in near realtime.
 
 #### Challenge 4 - Simulation of Suppliers - Replenishments
 For this challenge, vendors should be able to authenticate succesfully into the system by providing their vendor ID and 4-digit PIN
@@ -61,11 +61,11 @@ Vendors/suppliers should be able to perform the following functions:
 - Replenish the inventory count up to 100% of the MIL
 
 The goal of this challenge is to observe how changes to the database via the agent is processed in realtime using the capabilities of Confluent Cloud on Azure.
-Any modifications to records in the database via the agent, flows through Confluent Cloud an is reflected in the destination datastore in near realtime.
+Any modifications to records in the database via the agent, flows through Confluent Cloud and is reflected in the destination datastore in near realtime.
 
 
 #### Challenge 5 - Simulation of Customers - Purchases and Returns
-For this challenge, vendors should be able to authenticate succesfully into the system by providing their vendor ID and 4-digit PIN
+For this challenge, clients of the online store should be able to authenticate succesfully into the system by providing their customer ID and 4-digit PIN
 Clients/customers should be able to perform the following functions:
 - Get a list of all the SKUs the online store provides regardless of the inventory level of the SKUs
 - Get a list of all the SKUs that are not out of stock
@@ -77,4 +77,4 @@ Clients/customers should be able to perform the following functions:
 - Return a specific SKU from a previous purchase with Receipt ID provided if it is within 14 days of purchase from the current date.
 
 The goal of this challenge is to observe how changes to the database via the agent is processed in realtime using the capabilities of Confluent Cloud on Azure.
-Any modifications to records in the database via the agent, flows through Confluent Cloud an is reflected in the destination datastore in near realtime.
+Any modifications to records in the database via the agent, flows through Confluent Cloud and is reflected in the destination datastore in near realtime.
