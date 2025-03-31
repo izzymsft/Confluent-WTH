@@ -12,7 +12,7 @@ Confluent Cloud has over 200 Kafka source and sink connectors that allows develo
 
 Once the data stream arrives in this destination topic it can then be synchronized to a datastore such as Cosmos DB or Azure AI Search that represents the most up-to-date version of data the AI agent can leverage to provide valid answers to customers, employees and suppliers. 
 
-![Architecture Overview](./images/architecture-overview.png)
+![Architecture Overview](./images/architecture-overview-v2.png)
 
 ![KSQLDB](./images/ksqldb.png)
 ## The Impact
