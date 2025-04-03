@@ -1,7 +1,7 @@
 {
-    "id": "1000",
-    "purchase_id": "1000",
-    "transaction_date": "2025-04-01 10:30:00",
+    "id": "1002",
+    "purchase_id": "1002",
+    "transaction_date": "2025-04-02 10:30:08",
     "items": [
         {"sku_id": "100", "units": 3, "unit_price": 9.99, "discounts": 0.00}
     ]

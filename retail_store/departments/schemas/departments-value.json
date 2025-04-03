@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+      "department": {
+        "type": "string",
+        "enum": ["appliance", "cleaning", "dairy", "deli", "meat", "pharmacy", "produce", "seafood"]
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "required": ["department", "description"],
+    "additionalProperties": false
+  }

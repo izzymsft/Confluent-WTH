@@ -16,3 +16,4 @@ pydantic_core~=2.27.2
 requests~=2.32.3
 pyjwt
 pygithub
+azure-search-documents == 11.5.1
