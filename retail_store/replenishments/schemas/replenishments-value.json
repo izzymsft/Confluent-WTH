@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ReplenishmentTransaction",
+    "description": "Schema for a replenishment transaction including ID, transaction date, SKU ID, and units replenished.",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "description": "Unique identifier for the replenishment transaction."
+      },
+      "replenishment_id": {
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "description": "Identifier linking to the replenishment event."
+      },
+      "transaction_date": {
+        "type": "string",
+        "description": "Date and time of the transaction in YYYY-MM-DD HH:MM:SS format."
+      },
+      "sku_id": {
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "description": "Stock keeping unit (SKU) identifier for the replenished product."
+      },
+      "units": {
+        "type": "number",
+        "description": "Number of units replenished during the transaction."
+      }
+    },
+    "required": ["id", "replenishment_id", "transaction_date", "sku_id", "units"]
+  }
+  

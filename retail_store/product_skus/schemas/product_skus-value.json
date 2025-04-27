@@ -15,7 +15,8 @@
         "type": "string"
       },
       "department": {
-        "type": "string"
+        "type": "string",
+        "enum": ["appliance", "cleaning", "dairy", "deli", "meat", "pharmacy", "produce", "seafood"]
       }
     },
     "required": ["id", "sku_id", "name", "description", "department"],
