@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./environment.sh
+source ./environment-azure.sh
 
 # Enable Public Network Access
 az cosmosdb update -g ${AZURE_RESOURCE_GROUP} --name ${COSMOS_DB_ACCOUNT} --public-network-access Enabled
