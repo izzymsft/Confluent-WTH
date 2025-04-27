@@ -1,5 +1,8 @@
 {
+    "$schema": "https://json-schema.org/draft-07/schema#",
     "type": "object",
+    "title": "Departments Value",
+    "description": "Contains the department and description of the product SKU.",
     "properties": {
       "department": {
         "type": "string",

@@ -1,6 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "",
+    "description": "This schema defines the structure of the product inventory data.",
+    "title": "Product inventory Title SKU identifier Value",
     "type": "object",
     "properties": {
       "id": {

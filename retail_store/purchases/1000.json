@@ -1,8 +1,8 @@
 {
     "id": "1000",
-    "purchase_id": "1000",
+    "receipt_id": "1000",
     "transaction_date": "2025-04-01 10:30:00",
     "items": [
-        {"sku_id": "100", "units": 3, "unit_price": 9.99, "discounts": 0.00}
+        {"sku_id": "100", "units": 3.0, "unit_price": 9.99, "discounts": 0.00}
     ]
 }

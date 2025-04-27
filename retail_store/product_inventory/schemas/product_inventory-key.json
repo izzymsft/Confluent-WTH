@@ -1,3 +1,7 @@
 {
-    "type": "string"
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "type": "string",
+    "title": "Product inventory Title SKU identifier Key",
+    "description": "A unique identifier for the product inventory SKU",
+    "pattern": "^[0-9]+$"
 }

@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Net Sales for the Product SKU",
+    "description": "Schema for a sales record containing SKU ID, sales date, and net sales amount.",
+    "type": "object",
+    "properties": {
+      "sku_id": {
+        "type": "string",
+        "description": "Unique identifier for the stock keeping unit (SKU)."
+      },
+      "sales_date": {
+        "type": "string",
+        "format": "date",
+        "description": "Date of the sales transaction in YYYY-MM-DD format."
+      },
+      "net_sales": {
+        "type": "number",
+        "description": "Net sales amount for the transaction."
+      }
+    },
+    "required": ["sku_id", "sales_date", "net_sales"]
+  }
+  
