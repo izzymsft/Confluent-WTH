@@ -4,5 +4,5 @@
     "unit_price": 9.99,
     "name": "Toaster",
     "description": "Electric Toaster",
-    "department":"appliances"
+    "department":"appliance"
 }

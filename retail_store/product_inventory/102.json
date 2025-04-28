@@ -4,5 +4,5 @@
     "unit_price": 29.95,
     "name": "Microwave Oven",
     "description": "A solar-powered Microwave oven",
-    "department":"appliances"
+    "department":"appliance"
 }

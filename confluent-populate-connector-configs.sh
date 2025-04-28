@@ -10,6 +10,9 @@ connector_config_populate_secrets()
     INPUT_FILE="${DIRECTORY_PREFIX}/${FILE_PREFIX}.example.json"
     OUTPUT_FILE="${DIRECTORY_PREFIX}/${FILE_PREFIX}.final.json"
 
+    echo ""
+    echo ""
+    echo "Preparing Connector Configuration File ${FILE_PREFIX} ..."
     # Replace placeholders and output to a new file 
     sed \
         -e "s|\[AZURE_RESOURCE_GROUP\]|${AZURE_RESOURCE_GROUP}|g" \
@@ -19,16 +22,22 @@ connector_config_populate_secrets()
         -e "s|\[AZURE_SEARCH_API_KEY\]|${AZURE_SEARCH_API_KEY}|g" \
         -e "s|\[AZURE_STORAGE_ACCOUNT_NAME\]|${AZURE_STORAGE_ACCOUNT_NAME}|g" \
         -e "s|\[AZURE_STORAGE_ACCOUNT_KEY\]|${AZURE_STORAGE_ACCOUNT_KEY}|g" \
+        -e "s|\[AZURE_COSMOS_DB_ACCOUNT_NAME\]|${AZURE_COSMOS_DB_ACCOUNT_NAME}|g" \
+        -e "s|\[AZURE_COSMOS_DB_ACCOUNT_KEY\]|${AZURE_COSMOS_DB_ACCOUNT_KEY}|g" \
+        -e "s|\[AZURE_COSMOS_DB_DATABASE_NAME\]|${AZURE_COSMOS_DB_DATABASE_NAME}|g" \
         -e "s|\[SERVICE_PRINCIPAL_CLIENT_ID\]|${SERVICE_PRINCIPAL_CLIENT_ID}|g" \
         -e "s|\[SERVICE_PRINCIPAL_CLIENT_SECRET\]|${SERVICE_PRINCIPAL_CLIENT_SECRET}|g" \
         -e "s|\[SERVICE_PRINCIPAL_TENANT_ID\]|${SERVICE_PRINCIPAL_TENANT_ID}|g" \
         -e "s|\[SERVICE_PRINCIPAL_SUBSCRIPTION_ID\]|${SERVICE_PRINCIPAL_SUBSCRIPTION_ID}|g" \
         "$INPUT_FILE" > "$OUTPUT_FILE"
 
-    echo "Replacement complete. Modified file saved as $OUTPUT_FILE."   
+    echo "Replacement complete. Modified file saved as $OUTPUT_FILE." 
 }
 
-connector_config_populate_secrets "ai_search_product_inventory"
-connector_config_populate_secrets "azure_blob_departments"
-connector_config_populate_secrets "azure_blob_product_skus"
-connector_config_populate_secrets "azure_blob_product_pricing"
+# connector_config_populate_secrets "ai_search_product_inventory"
+# connector_config_populate_secrets "azure_blob_departments"
+# connector_config_populate_secrets "azure_blob_product_skus"
+# connector_config_populate_secrets "azure_blob_product_pricing"
+connector_config_populate_secrets "cosmos_db_purchases"
+connector_config_populate_secrets "cosmos_db_returns"
+connector_config_populate_secrets "cosmos_db_replenishments"
