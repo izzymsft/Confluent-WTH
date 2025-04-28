@@ -1,4 +1,4 @@
-# Lessons Learned for Developers/Coaches Setting Up Confluent and Azure Resources
+## Lessons Learned Setting Up Confluent and Azure Resources
 
 This document captures important lessons learned during development and environment setup, intended to help coaches and students avoid common pitfalls and streamline their workflows.
 
