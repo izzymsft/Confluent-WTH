@@ -1,53 +1,92 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Return Transaction Record Value",
-    "description": "Schema for a return transaction record, including return ID, receipt ID, transaction date, and a list of returned items.",
-    "type": "object",
-    "properties": {
-      "id": {
-        "type": "string",
-        "pattern": "^[0-9]+$",
-        "description": "Unique identifier for the return transaction."
-      },
-      "return_id": {
-        "type": "string",
-        "pattern": "^[0-9]+$",
-        "description": "Identifier for the return associated with the transaction."
-      },
-      "receipt_id": {
-        "type": "string",
-        "pattern": "^[0-9]+$",
-        "description": "Identifier of the original receipt linked to the return."
-      },
-      "transaction_date": {
-        "type": "string",
-        "format": "date-time",
-        "description": "Timestamp of when the return transaction occurred, in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)."
-      },
-      "items": {
-        "type": "array",
-        "description": "List of returned items in the transaction.",
-        "items": {
-          "type": "object",
-          "properties": {
-            "sku_id": {
-              "type": "string",
-              "pattern": "^[0-9]+$",
-              "description": "SKU identifier for the returned item."
-            },
-            "units": {
-              "type": "number",
-              "description": "Number of units returned."
-            },
-            "unit_price": {
-              "type": "number",
-              "description": "Price per unit of the returned item."
-            }
-          },
-          "required": ["sku_id", "units", "unit_price"]
-        }
-      }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Return Transaction Record Value",
+  "description": "Schema for a return transaction record, including return ID, receipt ID, transaction date, and a list of returned items.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Unique identifier for the return transaction."
     },
-    "required": ["id", "return_id", "receipt_id", "transaction_date", "items"]
-  }
-  
+    "return_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Identifier for the return associated with the transaction."
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Identifier of the original receipt linked to the return."
+    },
+    "transaction_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of when the return transaction occurred, in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)."
+    },
+    "customer_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Unique identifier for the customer making the return."
+    },
+    "_attachments": {
+      "type": "string",
+      "description": "A link to the documents attachments (e.g., media, binary data) if any exist. In most cases, it will just be an empty string unless you actually upload attachments."
+    },
+    "_etag": {
+      "type": "string",
+      "description": "The entity tag for optimistic concurrency control. It changes every time the document is updated. Cosmos DB uses it to check if the document has changed since a client last read it."
+    },
+    "_lsn": {
+      "type": "number",
+      "description": "Logical Sequence Number. It represents the order in which operations (insert/update/delete) were performed. Used internally for replication and change feed processing."
+    },
+    "_rid": {
+      "type": "string",
+      "description": "The resource ID of the document — a unique, internal identifier that Cosmos DB uses to find the document quickly inside its physical storage"
+    },
+    "_self": {
+      "type": "string",
+      "description": "A URI path to the document within the Cosmos DB REST API. You can use it to directly operate (read/update/delete) on the document via the API."
+    },
+    "_ts": {
+      "type": "number",
+      "description": "The timestamp (in UNIX epoch seconds) of when the document was last modified"
+    },
+    "items": {
+      "type": "array",
+      "description": "List of returned items in the transaction.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sku_id": {
+            "type": "string",
+            "pattern": "^[0-9]+$",
+            "description": "SKU identifier for the returned item."
+          },
+          "units": {
+            "type": "number",
+            "description": "Number of units returned."
+          },
+          "unit_price": {
+            "type": "number",
+            "description": "Price per unit of the returned item."
+          }
+        },
+        "required": [
+          "sku_id",
+          "units",
+          "unit_price"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "return_id",
+    "receipt_id",
+    "transaction_date",
+    "items",
+    "customer_id"
+  ]
+}

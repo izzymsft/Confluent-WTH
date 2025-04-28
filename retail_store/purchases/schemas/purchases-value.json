@@ -17,6 +17,11 @@
       "type": "string",
       "description": "Date and time of the transaction in 'YYYY-MM-DD HH:MM:SS' format."
     },
+    "customer_id": {
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "description": "Unique identifier for the customer making the purchase."
+    },
     "_attachments": {
       "type": "string",
       "description": "A link to the documents attachments (e.g., media, binary data) if any exist. In most cases, it will just be an empty string unless you actually upload attachments."
@@ -78,6 +83,7 @@
     "id",
     "receipt_id",
     "transaction_date",
-    "items"
+    "items",
+    "customer_id"
   ]
 }
