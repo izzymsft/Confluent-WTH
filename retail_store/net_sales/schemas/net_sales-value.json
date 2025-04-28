@@ -1,5 +1,4 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Net Sales for the Product SKU",
     "description": "Schema for a sales record containing SKU ID, sales date, and net sales amount.",
     "type": "object",

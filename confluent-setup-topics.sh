@@ -61,3 +61,6 @@ create_topic_with_schema "returns"
 # Destination topics heading over to Azure AI Search
 create_topic_with_schema "net_sales"
 create_topic_with_schema "product_inventory"
+
+
+confluent schema-registry schema list

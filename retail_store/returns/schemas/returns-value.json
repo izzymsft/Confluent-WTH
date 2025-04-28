@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Return Transaction Record Value",
   "description": "Schema for a return transaction record, including return ID, receipt ID, transaction date, and a list of returned items.",
   "type": "object",

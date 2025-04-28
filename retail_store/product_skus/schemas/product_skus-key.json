@@ -1,5 +1,4 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
     "type": "string",
     "description": "A unique identifier for the product SKU.",
     "pattern": "^[0-9]+$"

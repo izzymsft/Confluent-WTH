@@ -1,5 +1,4 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
     "type": "string",
     "title": "Returns Transaction Identifier Key",
     "description": "A unique identifier for the returns transaction",
