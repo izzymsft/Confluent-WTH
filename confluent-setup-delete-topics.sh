@@ -28,20 +28,20 @@ delete_kafka_topic_and_schemas() {
     confluent schema-registry schema delete --subject $topic_value_schema --version "all" --force --permanent
 
     # Delete the Kafka topic
-    confluent kafka topic delete "$topic_name" --if-exists
+    confluent kafka topic delete "$topic_name" --force
     echo "Topic $topic_name and its schemas have been deleted."
 }
 
 # Reference topics from Azure Blob Store
 delete_kafka_topic_and_schemas "departments"
-# delete_kafka_topic_and_schemas "product_pricing"
-# delete_kafka_topic_and_schemas "product_skus"
-# 
-# # Transaction topics from Cosmos DB
-# delete_kafka_topic_and_schemas "purchases"
-# delete_kafka_topic_and_schemas "replenishments"
-# delete_kafka_topic_and_schemas "returns"
-# 
-# # Destination topics heading over to Azure AI Search
-# delete_kafka_topic_and_schemas "net_sales"
-# delete_kafka_topic_and_schemas "product_inventory"
+delete_kafka_topic_and_schemas "product_pricing"
+delete_kafka_topic_and_schemas "product_skus"
+
+# Transaction topics from Cosmos DB
+delete_kafka_topic_and_schemas "purchases"
+delete_kafka_topic_and_schemas "replenishments"
+delete_kafka_topic_and_schemas "returns"
+
+# Destination topics heading over to Azure AI Search
+delete_kafka_topic_and_schemas "net_sales"
+delete_kafka_topic_and_schemas "product_inventory"

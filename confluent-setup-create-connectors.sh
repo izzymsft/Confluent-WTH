@@ -25,9 +25,9 @@ setup_confluent_connector()
 
 
 # Create the Kafka Source Connectors for Azure Blob Storage
-#setup_confluent_connector "azure_blob_departments"
-#setup_confluent_connector "azure_blob_product_pricing"
-#setup_confluent_connector "azure_blob_product_skus"
+setup_confluent_connector "azure_blob_departments"
+setup_confluent_connector "azure_blob_product_pricing"
+setup_confluent_connector "azure_blob_product_skus"
 
 
 Set up the Kafka Sink Connectors for Azure Cosmos DB
@@ -36,7 +36,7 @@ setup_confluent_connector "cosmos_db_returns"
 setup_confluent_connector "cosmos_db_replenishments"
 
 # Set up the Kafka Sink Connectors for Azure AI Search
-#setup_confluent_connector "ai_search_product_inventory"
+setup_confluent_connector "ai_search_product_inventory"
 
 # List all connectors in the cluster
 confluent connect cluster list
