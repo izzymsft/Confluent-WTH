@@ -115,3 +115,30 @@ Managing multiple topics through a single connector instance can cause data inco
 Setting up environments correctly from the start saves a significant amount of troubleshooting time later.  
 
 Following these lessons will enable faster setup, better security, and smoother integrations between Confluent Cloud and Azure resources.
+
+
+### Confluent Schema Registry Compatibility Modes
+
+| Compatibility Mode     | Meaning                                                                 | Typical Use Case                                                                |
+|-------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| BACKWARD                | New schema is backward compatible with the last registered schema. New schema can read old data. | New consumers must be able to read old data. |
+| BACKWARD_TRANSITIVE     | New schema is backward compatible with all previous schemas. New schema can read all historical data. | New consumers must read any past data. |
+| FORWARD                 | New schema is forward compatible with the last registered schema. Old schema can read new data. | Old consumers must read new data. |
+| FORWARD_TRANSITIVE      | New schema is forward compatible with all previous schemas. Old schemas can read all future data. | Legacy consumers must always work with new data. |
+| FULL                    | New schema is both backward and forward compatible with the last schema. Both new and old consumers understand all data. | Producers and consumers evolve independently but must interoperate. |
+| FULL_TRANSITIVE         | New schema is both backward and forward compatible with all previous schemas. Full compatibility across history. | Mission-critical systems with strict compatibility needs. |
+| NONE                    | No compatibility checks are performed. Any schema can be registered. | Development, prototyping, or manual schema control. |
+
+
+##### Visual Summary
+
+| Mode                  | New reads old? | Old reads new? | Applies to all past schemas? |
+|------------------------|:--------------:|:--------------:|:----------------------------:|
+| BACKWARD               | ✅              | ❌              | ❌                            |
+| BACKWARD_TRANSITIVE    | ✅              | ❌              | ✅                            |
+| FORWARD                | ❌              | ✅              | ❌                            |
+| FORWARD_TRANSITIVE     | ❌              | ✅              | ✅                            |
+| FULL                   | ✅              | ✅              | ❌                            |
+| FULL_TRANSITIVE        | ✅              | ✅              | ✅                            |
+| NONE                   | ❌              | ❌              | ❌                            |
+
