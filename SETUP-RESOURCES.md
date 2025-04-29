@@ -18,7 +18,7 @@ az --version
 
 terraform --version
 
-git clone {{repo_url}}
+git clone git@github.com:izzymsft/Confluent-WTH.git
 
 ```
 
