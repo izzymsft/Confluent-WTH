@@ -19,7 +19,7 @@ provider "azurerm" {
 # Resource Group
 resource "azurerm_resource_group" "main" {
   name     = "confluent-hackathon"
-  location = "West US 3"
+  location = "Central US"
 }
 
 # Azure AI Search Instance

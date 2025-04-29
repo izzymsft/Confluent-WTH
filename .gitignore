@@ -1,5 +1,9 @@
-
+# Terraform Stuff
 .terraform
+*.tfstate
+.terraform*
+
+# Othe files from Python and Node
 .cosmos_permissions
 DRAFT.txt
 node_modules
@@ -8,5 +12,4 @@ node_modules
 .project
 __pycache__
 *.final.json
-.terraform*
 

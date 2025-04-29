@@ -48,6 +48,25 @@ create_topic_with_schema() {
     echo ""
 }
 
+# Set Kafka Topic Schema Registry Subject 
+set_schema_registry_subject_compatibility() {
+    local topic_name="$1" # The name of the topic to set compatibility for
+    local compatibility_level="$2" # The desired compatibility level. Can be "backward", "backward_transitive", "forward", "forward_transitive", "full", "full_transitive", or "none".
+
+    local key_schema_subject="${topic_name}-key"
+    local value_schema_subject="${topic_name}-value"
+
+
+    echo "Setting schema registry topic key/value compatibility for $topic_name to $compatibility_level"
+    confluent schema-registry subject update ${key_schema_subject} --compatibility ${compatibility_level}
+    confluent schema-registry subject update ${value_schema_subject} --compatibility ${compatibility_level}
+
+    echo "----------------------------------------------"
+    echo "Schema registry subject compatibility set for: $topic_name"
+    echo "----------------------------------------------"
+
+}
+
 # Reference topics from Azure Blob Store
 create_topic_with_schema "departments"
 create_topic_with_schema "product_pricing"
@@ -64,3 +83,8 @@ create_topic_with_schema "product_inventory"
 
 
 confluent schema-registry schema list
+
+# Set schema registry subject compatibility for cosomos db topics
+set_schema_registry_subject_compatibility "purchases" "none"
+set_schema_registry_subject_compatibility "replenishments" "none"
+set_schema_registry_subject_compatibility "returns" "none"
