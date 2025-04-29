@@ -40,10 +40,15 @@ terraform output
 
 ```bash
 
+## Navigate back to the root directory
+
+cd ../
+
 # Ensure that your environment variables have been setup and loaded 
 # after the Terraform deployment of the Azure Resources
 
-# This loads the environment variables containing the secrets needed to set up the Kafka connectors
+# This loads the environment variables containing the secrets needed 
+# to set up the Kafka connectors
 source ~/.confluent-environment.sh
 
 # Reset the connector configs if needed
@@ -57,6 +62,7 @@ source ~/.confluent-environment.sh
 
 ### Generate the Topics Kafka Schemas for Each Topic
 
+Create the Kafka topics and their associated schemas in the Schema registry
 
 ```bash
 
@@ -71,6 +77,8 @@ source ~/.confluent-environment.sh
 
 ### Generate the Kafka Source & Sink Connectors
 
+Create the Source and Sink connectors
+
 ```bash
 
 # Creates/Updates the Connectors
@@ -80,3 +88,4 @@ source ~/.confluent-environment.sh
 ./confluent-setup-delete-connectors.sh
 
 ```
+
