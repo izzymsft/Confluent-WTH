@@ -3,6 +3,7 @@ terraform.tfstate.backup
 .terraform
 *.tfstate
 .terraform*
+azure_environment_variables.sh
 
 # Othe files from Python and Node
 .cosmos_permissions
