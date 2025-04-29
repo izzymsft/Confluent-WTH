@@ -19,6 +19,7 @@ connector_config_reset()
 }
 
 connector_config_reset "ai_search_product_inventory"
+connector_config_reset "ai_search_net_sales"
 
 connector_config_reset "azure_blob_departments"
 connector_config_reset "azure_blob_product_skus"

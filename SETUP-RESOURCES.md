@@ -87,7 +87,7 @@ cd ../
 
 # This loads the environment variables containing the secrets needed 
 # to set up the Kafka connectors
-source ~/.confluent-environment.sh
+source ./confluent-environment.sh
 
 # Reset the connector configs if needed
 ./confluent-setup-populate-connector-reset.sh
@@ -107,11 +107,21 @@ Create the Kafka topics and their associated schemas in the Schema registry
 # Creates the Topics and Schemas
 ./confluent-setup-create-topics.sh
 
-# Deletes the Topics and Schemas
+# Deletes the Topics and Schemas (If necessary)
 ./confluent-setup-delete-topics.sh
 
 ```
 
+### Set up the AI Search Indices
+
+Setting up the net_sales and product_inventory indices in Azure AI Search
+
+
+```bash
+
+./azure-setup-create-indices.sh
+
+```
 
 ### Generate the Kafka Source & Sink Connectors
 
@@ -122,7 +132,7 @@ Create the Source and Sink connectors
 # Creates/Updates the Connectors
 ./confluent-setup-create-connectors.sh
 
-# Deletes the Connectors
+# Deletes the Connectors (if necessary)
 ./confluent-setup-delete-connectors.sh
 
 ```
