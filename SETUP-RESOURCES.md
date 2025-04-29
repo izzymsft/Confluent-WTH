@@ -1,7 +1,30 @@
+### Resource Provisioning and Configuration
 
-## Azure Resource Provisioning
+Certain Terraform & bash scripts have been designed to enable you speed up the provisioning and configuration of the Azure resources necessary for the Hackathon.
 
-Azure that whatever region you pick, you have all the Azure resources, Kafka clusters and Flink compute pool available in that region.
+The Terraform scripts are in the `terraform` folder and the bash scripts used to provision or configure the Confluent Cloud resources are named `confluent-setup-*` in the root directory of this respository.
+
+### Getting Access to the Git Repo
+
+You can clone the repository by using the following command to your UNIX environment where Bash and Terraform is available.
+
+If you do not have the Git CLI, the Azure CLI and Terraform please do so before proceeding to the next steps
+
+```bash
+
+git --version
+
+az --version
+
+terraform --version
+
+git clone {{repo_url}}
+
+```
+
+### Azure Resource Provisioning
+
+Please ensure that whatever regions you pick, you have all the Azure resources, Kafka clusters and Flink compute pool available in that region. Some of the resources used in this hack on the Confluent Cloud end require your Kafka and Azure resources to be in the same region.
 
 Then use the Terraform script to provision the resources
 
