@@ -2,7 +2,7 @@
 
 Certain Terraform & bash scripts have been designed to enable you speed up the provisioning and configuration of the Azure resources necessary for the Hackathon.
 
-The Terraform scripts are in the `terraform` folder and the bash scripts used to provision or configure the Confluent Cloud resources are named `confluent-setup-*` in the root directory of this respository.
+The Terraform scripts are in the `terraform` folder and the bash scripts used to provision or configure the Confluent Cloud resources are named `confluent-setup-*.sh` in the root directory of this respository. The following instructions provide guidance on how to leverage these automation scripts in your work.
 
 ### Getting Access to the Git Repo
 
