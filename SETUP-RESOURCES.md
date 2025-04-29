@@ -4,6 +4,12 @@ Certain Terraform & bash scripts have been designed to enable you speed up the p
 
 The Terraform scripts are in the `terraform` folder and the bash scripts used to provision or configure the Confluent Cloud resources are named `confluent-setup-*.sh` in the root directory of this respository. The following instructions provide guidance on how to leverage these automation scripts in your work.
 
+We will be using Terraform to populate the contents of the `~/.confluent-environment.sh` file in your $HOME directory.
+
+Make sure this file is loaded to set up the environment variables that you need 
+
+An example template is provided in the root directory of the repo for your reference.
+
 ### Getting Access to the Git Repo
 
 You can clone the repository by using the following command to your UNIX environment where Bash and Terraform is available.
@@ -31,6 +37,15 @@ Then use the Terraform script to provision the resources
 ```bash
 # Navigate to the Terraform directory
 cd terraform
+
+# Login into the Azure CLI and specify the subscription ID you need to use
+az login
+
+# Get a list of your Azure Subscriptions
+az account list -o json
+
+# Specify your subscription identifier
+az account set -s "${ARM_SUBSCRIPTION_ID}"
 
 # Run the Terraform commands
 terraform init
