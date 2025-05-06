@@ -3,6 +3,10 @@
     "description": "Schema for a sales record containing SKU ID, sales date, and net sales amount.",
     "type": "object",
     "properties": {
+      "id": {
+        "type": "string",
+        "description": "Primary key for the SKU."
+      },
       "sku_id": {
         "type": "string",
         "description": "Unique identifier for the stock keeping unit (SKU)."
@@ -17,6 +21,6 @@
         "description": "Net sales amount for the transaction."
       }
     },
-    "required": ["sku_id", "sales_date", "net_sales"]
+    "required": ["id", "sku_id", "sales_date", "net_sales"]
   }
   

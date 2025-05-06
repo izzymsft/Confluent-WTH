@@ -1,8 +1,8 @@
 {
     "name": "net_sales",
     "fields": [
-     {
-        "name": "sku_id",
+      {
+        "name": "id",
         "type": "Edm.String",
         "searchable": false,
         "filterable": true,
@@ -11,6 +11,18 @@
         "sortable": true,
         "facetable": false,
         "key": true,
+        "synonymMaps": []
+      },
+     {
+        "name": "sku_id",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": false,
         "synonymMaps": []
       },
       {
