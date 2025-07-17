@@ -34,9 +34,9 @@ terraform output -raw storage_account_name | awk '{print "export AZURE_STORAGE_A
 terraform output -raw storage_account_primary_access_key | awk '{print "export AZURE_STORAGE_ACCOUNT_KEY=\"" $0 "\""}' >> "$ENV_FILE"
 echo "" >> "$ENV_FILE"
 
-echo "# Azure Redis Cache Credentials" >> "$ENV_FILE"
-terraform output -raw redis_hostname | awk '{print "export REDIS_HOSTNAME=\"" $0 "\""}' >> "$ENV_FILE"
-terraform output -raw redis_primary_access_key | awk '{print "export REDIS_PRIMARY_ACCESS_KEY=\"" $0 "\""}' >> "$ENV_FILE"
-echo "" >> "$ENV_FILE"
+#echo "# Azure Redis Cache Credentials" >> "$ENV_FILE"
+#terraform output -raw redis_hostname | awk '{print "export REDIS_HOSTNAME=\"" $0 "\""}' >> "$ENV_FILE"
+#terraform output -raw redis_primary_access_key | awk '{print "export REDIS_PRIMARY_ACCESS_KEY=\"" $0 "\""}' >> "$ENV_FILE"
+#echo "" >> "$ENV_FILE"
 
 echo "✅ Environment file generated: $ENV_FILE"
