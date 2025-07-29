@@ -4,9 +4,21 @@ resource "azurerm_resource_group" "main" {
   location = "${var.resource_group_location}"
 }
 
+resource "random_string" "suffix" {
+  length  = 6
+  upper   = false
+  special = false
+
+  # To avoid re-generating a new string on every plan/apply (which causes recreation of dependent resources)
+  # Prevent recreation
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
 # Azure AI Search Instance
 resource "azurerm_search_service" "search" {
-  name                = "confluentizzysearch1"
+  name                = "cfltizzyaisearch${random_string.suffix.result}"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   sku                 = "standard"
@@ -16,22 +28,9 @@ resource "azurerm_search_service" "search" {
   public_network_access_enabled = true
 }
 
-# Azure Redis Cache
-# resource "azurerm_redis_cache" "redis" {
-#   name                = "confluentizzyredis1"
-#   location            = azurerm_resource_group.main.location
-#   resource_group_name = azurerm_resource_group.main.name
-#   capacity            = 1    # C1 (1 GB)
-#   family              = "C"
-#   sku_name            = "Standard"  # Basic, Standard or Premium
-#   non_ssl_port_enabled = false
-#   minimum_tls_version  = "1.2"
-#   access_keys_authentication_enabled = true
-# }
-
 # Azure Cosmos DB (SQL API)
 resource "azurerm_cosmosdb_account" "cosmosdb" {
-  name                = "confluentizzycosmos1"
+  name                = "confluentizzycosmos${random_string.suffix.result}"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   offer_type          = "Standard"
@@ -92,7 +91,7 @@ resource "azurerm_cosmosdb_sql_container" "replenishments" {
 
 # Azure Blob Storage (Storage Account)
 resource "azurerm_storage_account" "storage" {
-  name                     = "cfltizzyretailstore1"
+  name                     = "cfltizzyretailstore${random_string.suffix.result}"
   resource_group_name      = azurerm_resource_group.main.name
   location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"

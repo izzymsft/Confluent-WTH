@@ -3,16 +3,26 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 4.35.0"
+      version = "4.37.0"
     }
 
     confluent = {
       source  = "confluentinc/confluent"
-      version = "2.32.0"
+      version = "2.35.0"
+    }
+
+    random = {
+      source  = "hashicorp/random"
+      version = "3.7.2"
     }
   }
 
-  required_version = ">= 1.11.4"
+  required_version = ">= 1.12.2"
+}
+
+provider "random" {
+  # Random provider configuration
+  # This can be left empty or configured as needed
 }
 
 provider "azurerm" {
@@ -39,4 +49,3 @@ provider "confluent" {
   schema_registry_api_key = var.schema_registry_api_key             # optionally use SCHEMA_REGISTRY_API_KEY env var
   schema_registry_api_secret = var.schema_registry_api_secret       # optionally use SCHEMA_REGISTRY_API_SECRET env var
 }
-

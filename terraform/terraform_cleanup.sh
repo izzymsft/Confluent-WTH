@@ -2,10 +2,12 @@
 
 
 echo "Cleaning up Terraform resources..."
-rm -rf .terraform*
-rm -rf .terraform.lock.hcl
-rm -rf terraform.tfstate
-rm -rf terraform.tfstate.backup
-rm -rf *.tfplan
+
+# Remove Terraform state files and directories 
+rm -vrf .terraform*
+rm -vrf .terraform.lock.hcl
+rm -vrf terraform.tfstate
+rm -vrf terraform.tfstate.backup
+rm -vrf *.tfplan
 
 echo "Terraform resources cleaned up successfully."

@@ -63,14 +63,5 @@ output "storage_account_blob_endpoint" {
   value       = azurerm_storage_account.storage.primary_blob_endpoint
 }
 
-# output "redis_hostname" {
-#   description = "Redis Cache Hostname"
-#   value       = azurerm_redis_cache.redis.hostname
-# }
-# 
-# output "redis_primary_access_key" {
-#   description = "Primary Access Key for Azure Redis Cache"
-#   value       = azurerm_redis_cache.redis.primary_access_key
-#   sensitive   = true
-# }
+
 
