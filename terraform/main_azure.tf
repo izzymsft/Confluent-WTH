@@ -16,9 +16,36 @@ resource "random_string" "suffix" {
   }
 }
 
+# Azure Blob Storage (Storage Account)
+resource "azurerm_storage_account" "storage" {
+  name                     = "cfltizzy${random_string.suffix.result}"
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
+  account_tier             = "Standard"
+  account_replication_type = "ZRS"
+  account_kind             = "StorageV2"
+}
+
+# Define a list of blob container names
+locals {
+  container_names = [
+    "departments",
+    "product-pricing",
+    "product-skus"
+  ]
+}
+
+# Create containers using a loop
+resource "azurerm_storage_container" "containers" {
+  for_each              = toset(local.container_names)
+  name                  = each.value
+  storage_account_id    = azurerm_storage_account.storage.id
+  container_access_type = "private"
+}
+
 # Azure AI Search Instance
 resource "azurerm_search_service" "search" {
-  name                = "cfltizzyaisearch${random_string.suffix.result}"
+  name                = "cfltizzy${random_string.suffix.result}"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   sku                 = "standard"
@@ -26,11 +53,13 @@ resource "azurerm_search_service" "search" {
   replica_count       = 1
   local_authentication_enabled = true
   public_network_access_enabled = true
+
+  depends_on = [ azurerm_storage_container.containers ]
 }
 
 # Azure Cosmos DB (SQL API)
 resource "azurerm_cosmosdb_account" "cosmosdb" {
-  name                = "confluentizzycosmos${random_string.suffix.result}"
+  name                = "cfltizzy${random_string.suffix.result}"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   offer_type          = "Standard"
@@ -44,6 +73,8 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     location          = azurerm_resource_group.main.location
     failover_priority = 0
   }
+
+  depends_on = [ azurerm_storage_container.containers ]
 }
 
 # Cosmos DB SQL Database
@@ -88,31 +119,4 @@ resource "azurerm_cosmosdb_sql_container" "replenishments" {
   throughput          = 400
 }
 
-
-# Azure Blob Storage (Storage Account)
-resource "azurerm_storage_account" "storage" {
-  name                     = "cfltizzyretailstore${random_string.suffix.result}"
-  resource_group_name      = azurerm_resource_group.main.name
-  location                 = azurerm_resource_group.main.location
-  account_tier             = "Standard"
-  account_replication_type = "ZRS"
-  account_kind             = "StorageV2"
-}
-
-# Define a list of blob container names
-locals {
-  container_names = [
-    "departments",
-    "product-pricing",
-    "product-skus"
-  ]
-}
-
-# Create containers using a loop
-resource "azurerm_storage_container" "containers" {
-  for_each              = toset(local.container_names)
-  name                  = each.value
-  storage_account_id    = azurerm_storage_account.storage.id
-  container_access_type = "private"
-}
 

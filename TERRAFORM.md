@@ -14,8 +14,9 @@ Check out the [INSTALL_CLI_DEPENDENCIES.md] resource for instructions for how to
 
 terraform init
 
-terraform plan
+terraform plan -out microsoft_hackathon.plan
 
+terraform apply "microsoft_hackathon.plan"
 
 ````
 
