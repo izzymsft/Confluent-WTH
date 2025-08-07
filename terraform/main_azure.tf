@@ -44,6 +44,12 @@ resource "azurerm_storage_container" "containers" {
 }
 
 # Azure AI Search Instance
+# New changes to the Azure Search Service API require the use of 
+# `local_authentication_enabled` and `authentication_failure_mode` properties.
+# These properties are required to enable local authentication and set the failure mode.
+# The `public_network_access_enabled` property is also set to true to allow public access.
+# https://learn.microsoft.com/en-us/azure/search/search-security-enable-roles?tabs=config-svc-rest%2Cdisable-keys-cli
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/search_service
 resource "azurerm_search_service" "search" {
   name                = "cfltizzy${random_string.suffix.result}"
   resource_group_name = azurerm_resource_group.main.name
@@ -52,6 +58,7 @@ resource "azurerm_search_service" "search" {
   partition_count     = 1
   replica_count       = 1
   local_authentication_enabled = true
+  authentication_failure_mode = "http403"
   public_network_access_enabled = true
 
   depends_on = [ azurerm_storage_container.containers ]

@@ -25,7 +25,7 @@ resource "confluent_schema_registry_cluster_config" "microsoft_hackathon" {
   compatibility_level = "NONE"
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
@@ -81,7 +81,7 @@ resource "confluent_connector" "blob_store_connectors" {
   config_nonsensitive = {
     "kafka.api.key"                                 = var.kafka_api_key
     "kafka.api.secret"                              = var.kafka_api_secret
-    "azblob.account.name"                           = "cfltizzyretailstore${random_string.suffix.result}"
+    "azblob.account.name"                           = azurerm_storage_account.storage.name
     "azblob.account.key"                            = azurerm_storage_account.storage.primary_access_key
     "connector.class"                               = "AzureBlobSource"
     "name"                                          = each.value.name
@@ -192,12 +192,12 @@ resource "confluent_connector" "ai_search_connectors" {
   }
 
   config_nonsensitive = {
-    "kafka.api.key"                                = var.kafka_api_key
-    "kafka.api.secret"                             = var.kafka_api_secret
-    "azure.search.resourcegroup.name"              = var.resource_group_name
-    "azure.search.service.name"                    = azurerm_search_service.search.name
-    "azure.search.api.key"                         = azurerm_search_service.search.primary_key
-    "azure.search.tenant.id"                       = var.service_principal_tenant_id
+    "kafka.api.key"                                 = var.kafka_api_key
+    "kafka.api.secret"                              = var.kafka_api_secret
+    "azure.search.resourcegroup.name"               = var.resource_group_name
+    "azure.search.service.name"                     = azurerm_search_service.search.name
+    "azure.search.api.key"                          = azurerm_search_service.search.primary_key
+    "azure.search.tenant.id"                        = var.service_principal_tenant_id
     "azure.search.subscription.id"                  = var.service_principal_subscription_id
     "azure.search.client.id"                        = var.service_principal_client_id
     "azure.search.client.secret"                    = var.service_principal_client_secret

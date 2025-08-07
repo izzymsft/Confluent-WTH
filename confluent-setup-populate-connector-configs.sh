@@ -25,10 +25,10 @@ connector_config_populate_secrets()
         -e "s|\[AZURE_COSMOS_DB_ACCOUNT_NAME\]|${AZURE_COSMOS_DB_ACCOUNT_NAME}|g" \
         -e "s|\[AZURE_COSMOS_DB_ACCOUNT_KEY\]|${AZURE_COSMOS_DB_ACCOUNT_KEY}|g" \
         -e "s|\[AZURE_COSMOS_DB_DATABASE_NAME\]|${AZURE_COSMOS_DB_DATABASE_NAME}|g" \
-        -e "s|\[SERVICE_PRINCIPAL_CLIENT_ID\]|${SERVICE_PRINCIPAL_CLIENT_ID}|g" \
-        -e "s|\[SERVICE_PRINCIPAL_CLIENT_SECRET\]|${SERVICE_PRINCIPAL_CLIENT_SECRET}|g" \
-        -e "s|\[SERVICE_PRINCIPAL_TENANT_ID\]|${SERVICE_PRINCIPAL_TENANT_ID}|g" \
-        -e "s|\[SERVICE_PRINCIPAL_SUBSCRIPTION_ID\]|${SERVICE_PRINCIPAL_SUBSCRIPTION_ID}|g" \
+        -e "s|\[ARM_CLIENT_ID\]|${ARM_CLIENT_ID}|g" \
+        -e "s|\[ARM_CLIENT_SECRET\]|${ARM_CLIENT_SECRET}|g" \
+        -e "s|\[ARM_TENANT_ID\]|${ARM_TENANT_ID}|g" \
+        -e "s|\[ARM_SUBSCRIPTION_ID\]|${ARM_SUBSCRIPTION_ID}|g" \
         "$INPUT_FILE" > "$OUTPUT_FILE"
 
     echo "Replacement complete. Modified file saved as $OUTPUT_FILE." 
