@@ -24,6 +24,8 @@ resource "azurerm_storage_account" "storage" {
   account_tier             = "Standard"
   account_replication_type = "ZRS"
   account_kind             = "StorageV2"
+  public_network_access_enabled = true
+  shared_access_key_enabled = true
 }
 
 # Define a list of blob container names
@@ -71,6 +73,9 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   resource_group_name = azurerm_resource_group.main.name
   offer_type          = "Standard"
   kind                = "GlobalDocumentDB"
+  public_network_access_enabled = true
+  local_authentication_disabled = false
+
 
   consistency_policy {
     consistency_level = "Strong"
